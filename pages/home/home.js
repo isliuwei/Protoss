@@ -10,7 +10,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        
+        loadingHidden: false  
     },
 
     onLoad: function () {
@@ -27,7 +27,8 @@ Page({
 
         home.getThemeData((data) => {
             this.setData({
-                'themeArr': data
+                'themeArr': data,
+                'loadingHidden': true
             });
         });
 
@@ -53,5 +54,20 @@ Page({
         wx.navigateTo({
             url: '../theme/theme?id=' + id + '&name=' + name
         })
+    },
+
+    /*下拉刷新页面*/
+    onPullDownRefresh: function () {
+        this._loadData(() => {
+            wx.stopPullDownRefresh()
+        });
+    },
+
+    //分享效果
+    onShareAppMessage: function () {
+        return {
+            title: '零食商贩 Pretty Vendor',
+            path: 'pages/home/home'
+        }
     }
 })

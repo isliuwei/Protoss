@@ -92,18 +92,18 @@ Page({
   },
 
   /*下拉刷新页面*/
-  // onPullDownRefresh: function () {
-  //   this._loadData(() => {
-  //     wx.stopPullDownRefresh()
-  //   });
-  // },
+  onPullDownRefresh: function () {
+    this._loadData(() => {
+      wx.stopPullDownRefresh()
+    });
+  },
 
   //分享效果
-  // onShareAppMessage: function () {
-  //   return {
-  //     title: '奔跑的脆皮肠',
-  //     path: 'pages/category/category'
-  //   }
-  // }
+  onShareAppMessage: function () {
+    return {
+      title: '奔跑的脆皮肠',
+      path: 'pages/category/category'
+    }
+  }
 
 })

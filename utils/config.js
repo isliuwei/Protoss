@@ -9,6 +9,7 @@ class Config {
 // api公共地址
 Config.restUrl = 'http://lw.cn/api/v1/';
 //Config.restUrl = 'http://isliuwei.com/zerg/public/api/v1/';
+Config.onPay = false;  //是否启用支付
 // 精选主题theme的id号
 Config.themeIDs = [1,2,3];
 export { Config }

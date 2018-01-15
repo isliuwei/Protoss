@@ -11,9 +11,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    loadingHidden: false,
+    hiddenSmallImg: true,
     countsArray: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     productCounts: 1,
-    currentTabsIndex: 0
+    currentTabsIndex: 0,
+    cartTotalCounts: 0
   },
 
   /**
@@ -31,7 +34,8 @@ Page({
     product.getDetailInfo(this.data.id, (data) => {
       that.setData({
         product: data,
-        cartTotalCounts: cart.getCartTotalCounts().counts1
+        cartTotalCounts: cart.getCartTotalCounts().counts1,
+        loadingHidden: true
       });
       callback && callback();
     });
